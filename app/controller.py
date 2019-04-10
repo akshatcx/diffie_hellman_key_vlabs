@@ -7,44 +7,40 @@ main=Blueprint('main', __name__)
 
 @main.route('/introduction')
 def introduction():
-    return "hi"
-
+    return render_template("Introduction.html")
 @main.route('/theory')
 def theory():
-    pass
+    return render_template("Theory.html")
 
 @main.route('/objective')
 def objective():
-    pass
+    return render_template("Objective.html")
 
 @main.route('/experiment')
 def experiment():
-    pass
+    return render_template("Experiment.html")
 
 @main.route('/manual')
 def manual():
-    pass
+    return render_template("Manual.html")
 
 @main.route('/quizzes')
 def quizzes():
-    pass
+    return render_template("Quizzes.html")
 
 @main.route('/procedure')
 def procedure():
-    pass
+    return render_template("Procedure.html")
 
-@main.route('/further_readings')
+@main.route('/further_reading')
 def further_reading():
-    pass
+    return render_template("Further Readings.html")
 
 @main.route('/feedback', methods=['GET','POST'])
 def feedback():
+    return render_template("Feedback.html")
     pass
 
 @main.route('/api')
 def api():
     pass
-
-
-
-
