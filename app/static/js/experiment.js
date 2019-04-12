@@ -1,53 +1,99 @@
-var generatorvalue
-var kA = 2
-var kB = 3
-var GA = 5
-var GB = 9
-var GAB = 3
+var primenumber = document.getElementById('primeno')
+var generatorvalue = document.getElementById('generator')
+var Keybox1 = document.getElementById('keyA')
+var Keybox2 = document.getElementById('keyB')
+var gabox = document.getElementById('encryptA')
+var gbbox = document.getElementById('encryptB')
+var recB = document.getElementById('receivedB')
+var recA = document.getElementById('receivedA')
+var gabtext = document.getElementById('encryptAB')
+var gabtext = document.getElementById('encryptBA')
 
-var generatePrime = function()
+
+function generatePrime()
 {
-   var primenumber = document.getElementById('primeno')
+    if (primenumber.value==""){
+        fetch("/api/genp?bits=256")
+            .then((res) => res.json())
+            .then(res => {
+                primenumber.value=res.prime
+            });
+    }
 }
 
-var nextGenerator = function()
-{
-  generatorvalue = document.getElementById('generator').value
+function nextGenerator(){
+
+  if (generatorvalue.value=""){
+    fetch("/api/geng/?bits=256")
+      .then((res) => res.json())
+      .then(res => {
+        generatorvalue.value=res.generator
+      });
+  }
 }
-var nextKeyA= function()
+function nextKeyA()
 {
-  Keybox1 = document.getElementById('keyA')
-  Keybox1.value = kA;
+  if (Keybox1.value=""){
+    fetch("/api/private_key/?prime="+primenumber.value)
+      .then((res) => res.json())
+      .then(res => {
+      Keybox1.value=res.private_key
+      });
+    }
 }
-var nextKeyB= function()
+function nextKeyB()
 {
-  Keybox2 = document.getElementById('keyB')
-  Keybox2.value = kB;
+  if (Keybox2.value=""){
+    fetch("/api/private_key/?prime="+primenumber.value)
+      .then((res) => res.json())
+      .then(res => {
+        Keybox2.value=res.private_key
+      });
+  }
 }
+
 function calculateGA()
 {
-  gabox = document.getElementById('encryptA')
-  gabox.value=GA
+  fetch("/api/calg/?p="+primenumber.value+"&a="+Keybox1.value+"&b="+Keybox2.value+"&g="+generatorvalue.value)
+      .then((res) => res.json())
+      .then(res => {
+        gabox.value=res.Ga
+      });
 }
 function calculateGB()
 {
-  gabox = document.getElementById('encryptB')
-  gabox.value=GB
+  fetch("/api/calg/?p="+primenumber.value+"&a="+Keybox1.value+"&b="+Keybox2.value+"&g="+generatorvalue.value)
+      .then((res) => res.json())
+      .then(res => {
+        gbbox.value=res.Gb
+      });
 }
 function sendA()
 {
-  var recB = document.getElementById('receivedB')
-  recB.value = GA
+  fetch("/api/calg/?p="+primenumber.value+"&a="+Keybox1.value+"&b="+Keybox2.value+"&g="+generatorvalue.value)
+      .then((res) => res.json())
+      .then(res => {
+        recB.value=res.Ga
+      });
 }
 function sendB(){
-  var recA = document.getElementById('receivedA')
-  recA.value = GB
+  fetch("/api/calg/?p="+primenumber.value+"&a="+Keybox1.value+"&b="+Keybox2.value+"&g="+generatorvalue.value)
+      .then((res) => res.json())
+      .then(res => {
+        recB.value=res.Gb
+      });
 }
 function calculateGAB(){
-  var gabtext = document.getElementById('encryptAB')
-  gabtext.value = GAB
+  fetch("/api/calg/?p="+primenumber.value+"&a="+Keybox1.value+"&b="+Keybox2.value+"&g="+generatorvalue.value)
+      .then((res) => res.json())
+      .then(res => {
+        gabtext.value=res.Gab
+      });
 }
 function calculateGBA(){
-  var gabtext = document.getElementById('encryptBA')
-  gabtext.value = GAB
+  fetch("/api/calg/?p="+primenumber.value+"&a="+Keybox1.value+"&b="+Keybox2.value+"&g="+generatorvalue.value)
+      .then((res) => res.json())
+      .then(res => {
+        gabtext.value=res.Gba
+      });
 }

@@ -42,8 +42,8 @@ def feedback():
     return render_template("Feedback.html")
     pass
 
-@main.route('/api/p')
-def p():
+@main.route('/api/genp')
+def genp():
     l=0
     l=int(str(request.args.get('bits')))
     if not l:
@@ -51,8 +51,8 @@ def p():
     p=helper.genp(l)
     return json.dumps({'prime': p })
 
-@main.route('/api/g')
-def g():
+@main.route('/api/geng')
+def geng():
     l=0
     l=int(str(request.args.get('bits')))
     if not l:
