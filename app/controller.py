@@ -48,7 +48,7 @@ def genp():
     l=int(str(request.args.get('bits')))
     if not l:
         l=256
-    p=helper.genp(l)
+    p = str(helper.genp(l))
     return json.dumps({'prime': p })
 
 @main.route('/api/geng')
@@ -57,7 +57,7 @@ def geng():
     l=int(str(request.args.get('bits')))
     if not l:
         l=256
-    g=helper.geng(l)
+    g=str(helper.geng(l))
     return json.dumps({'generator': g })
 
 @main.route('/api/private_key')
@@ -65,7 +65,7 @@ def private_key():
     p=int(str(request.args.get('prime')))
     if not p:
         return "Invalid"
-    pk=helper.genpk(p)
+    pk=str(helper.genpk(p))
     return json.dumps({'private_key' : pk })
 
 @main.route('/api/calg')
@@ -76,10 +76,10 @@ def calg():
     b=int(str(request.args.get('b')))
     g=int(str(request.args.get('g')))
 
-    Ga = helper.calg(g,a,p)
-    Gb = helper.calg(g,b,p)
-    Gab = helper.calg(Gb,a,p)
-    Gba = helper.calg(Ga,b,p)
+    Ga = str(helper.calg(g,a,p))
+    Gb = str(helper.calg(g,b,p))
+    Gab = str(helper.calg(Gb,a,p))
+    Gba = str(helper.calg(Ga,b,p))
 
     ret = {
         'Ga' : Ga,

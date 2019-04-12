@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.register_blueprint(main)
 
 def main():
-    app.run(debug=True, host='127.0.0.1')
+    app.run(debug=True)
 
 if __name__ == '__main__':
     main()
