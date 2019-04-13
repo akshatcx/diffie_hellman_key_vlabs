@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 from .api import helper
-#from .models import db
-
+from .models import Quiz
+from .models import db
 import json
 
 main=Blueprint('main', __name__)
@@ -70,7 +70,7 @@ def private_key():
 
 @main.route('/api/calg')
 def calg():
-    
+
     p=int(str(request.args.get('p')))
     a=int(str(request.args.get('a')))
     b=int(str(request.args.get('b')))
@@ -90,6 +90,16 @@ def calg():
 
     return json.dumps(ret)
 
-
-
-
+@main.route('/addanswers', methods = ['POST'])
+def addAnswers():
+    try:
+        answer1 = request.form['q1']
+        answer2 = request.form['q2']
+        answer3 = request.form['q3']
+        answer4 = request.form['q4']
+    except:
+        print('Values not obtained')
+    Answer = Quiz(answer1, answer2, answer3, answer4)
+    app.db.session.add(Answer)
+    app.db.session.commit()
+    return jsonify(stat=true)
