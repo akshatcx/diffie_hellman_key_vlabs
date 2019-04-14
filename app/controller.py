@@ -98,8 +98,8 @@ def addAnswers():
         answer3 = request.form['q3']
         answer4 = request.form['q4']
     except:
-        print('Values not obtained')
+        flash('Values not obtained',"error")
     Answer = Quiz(answer1, answer2, answer3, answer4)
-    app.db.session.add(Answer)
-    app.db.session.commit()
+    db.session.add(Answer)
+    db.session.commit()
     return jsonify(stat=true)

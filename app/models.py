@@ -1,10 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
 import datetime
-from . import db
-# db = SQLAlchemy()
+db = SQLAlchemy()
 
 class Quiz(db.Model):
-    id= db.Column( db.Integer, primary_key=True)
+    __tablename__='quiz'
+    
+    id= db.Column( 'id', db.Integer, primary_key=True)
     date_time = db.Column( db.DateTime, default = datetime.datetime.now )
     ans_q1 = db.Column('q1', db.String(6))
     ans_q2 = db.Column('q2', db.String(6))

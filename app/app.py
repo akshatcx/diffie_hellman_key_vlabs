@@ -1,11 +1,12 @@
 from flask import Flask
 from .controller import main
-from flask_sqlalchemy import SQLAlchemy
-# from .models import db
+from .models import db
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.register_blueprint(main)
-db = SQLAlchemy(app)
+
+db.init_app(app)
 
 
 if __name__ == '__main__':
