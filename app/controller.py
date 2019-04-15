@@ -6,6 +6,10 @@ import json
 
 main=Blueprint('main', __name__)
 
+@main.route('/')
+def index():
+    return render_template("Introduction.html")
+
 @main.route('/introduction')
 def introduction():
     return render_template("Introduction.html")
