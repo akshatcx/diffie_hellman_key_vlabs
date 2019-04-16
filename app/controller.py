@@ -96,6 +96,7 @@ def calg():
 
 @main.route('/addanswers', methods = ['POST'])
 def addAnswers():
+    db.create_all()
     try:
         answer1 = request.form['q1']
         answer2 = request.form['q2']
@@ -106,4 +107,4 @@ def addAnswers():
     Answer = Quiz(answer1, answer2, answer3, answer4)
     db.session.add(Answer)
     db.session.commit()
-    return jsonify(stat=true)
+    return json.dumps(True)
