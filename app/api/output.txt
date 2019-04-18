@@ -1,0 +1,16 @@
+
+Alice's secret key (Gab): 629 and Bob's secret key (Gba): 629
+As both of them match, a Diffie Hellman Key was successfully established!
+
+
+Alice's secret key (Gab): 18251914 and Bob's secret key (Gba): 18251914
+As both of them match, a Diffie Hellman Key was successfully established!
+
+
+Alice's secret key (Gab): 1415198164919015724334698729 and Bob's secret key (Gba): 1415198164919015724334698729
+As both of them match, a Diffie Hellman Key was successfully established!
+
+
+Alice's secret key (Gab): 112140162678958391961128827544543287119 and Bob's secret key (Gba): 112140162678958391961128827544543287119
+As both of them match, a Diffie Hellman Key was successfully established!
+
