@@ -75,11 +75,10 @@ def genp():
 #GENG generates the generator of l-1 bits (taken as an url argument)
 @main.route('/api/geng')
 def geng():
-    l=0
-    l=int(str(request.args.get('bits')))
+    p=int(str(request.args.get('prime')))
     
     #helper file contains the required function geng
-    g=str(helper.geng(l))
+    g=str(helper.geng(p))
     return json.dumps({'generator': g })
 
 #GENPK generates a private key by taking the prime number as an url argument

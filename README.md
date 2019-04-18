@@ -15,7 +15,7 @@ This project is a part of an assignment for the ISS course.
     - Returns `prime`: A randomly generated prime number with the required amount of bits  
 
 - `/api/geng`
-    - Arguments `bits`: One more than the number of bits expected in the generated value
+    - Arguments `prime`: Value of the main prime
     - Returns `generator`: A randomly generated prime number smaller than the original prime
 - `/api/private_key`
     - Arguments `prime`: Main prime number in the experiment
@@ -40,7 +40,7 @@ This project is a part of an assignment for the ISS course.
 
 ## Helper functions (in `app/api/helper.py`)
 - genp(l): Generates a prime number of l bits
-- geng(l): Generates a prime number of l-1 bits
+- geng(p): Generates a prime number lesser than p
 - calg(a,b,p): Returns the value of (a^b)%p
 
 

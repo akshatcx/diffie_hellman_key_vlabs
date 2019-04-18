@@ -59,8 +59,9 @@ def generate_prime_number(length=128):
 def genp(l):
     return generate_prime_number(int(l))
 
-def geng(l):
-    return generate_prime_number(int(l-1))
+def geng(p):
+    binary = bin(int(p))[2:]
+    return generate_prime_number(len(binary)-1)
 
 def genpk(p):
     return randrange(1,int(p))
