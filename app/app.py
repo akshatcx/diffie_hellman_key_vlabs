@@ -4,6 +4,8 @@ from .models import db
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.secret_key = 'akshatchhajer'
+
 app.register_blueprint(main)
 
 db.init_app(app)
