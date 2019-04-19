@@ -43,4 +43,15 @@ This project is a part of an assignment for the ISS course.
 - geng(p): Generates a prime number lesser than p
 - calg(a,b,p): Returns the value of (a^b)%p
 
+##Design Pattern (Model-View-Controller Pattern)
+- Model: Represents the object carrying all the raw data. In this case it is the implementation of the SQLAlchemy Database.
+- View: Represents the visualization of the data that model contains. It includes everything that the user sees when he/she interacts with the application. In this case it contains all the HTML files (templates) which are shown to the user in the front-end side.
+- Controller: Controller works on the view and the model and acts like a bridge between them. It listens to events triggered by the view and executes the appropriate reaction to these events. In this case in contains all the logic behind the experiment. Moreover it also controls which method is called when a particular button is pressed.
+
+###Advantages
+- Multiple developers can work simultaneously on the project with minimal conflicts.
+- Makes the project modular in nature
+- Enables logical grouping of related actions on a controller together
+- The data is stored without the the need of formatting
+
 

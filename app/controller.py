@@ -1,6 +1,6 @@
 #Controller file including all the routes
 
-from flask import Blueprint, render_template, request, jsonify
+from flask import Blueprint, flash, render_template, request, jsonify
 from .api import helper
 from .models import Quiz
 from .models import db
