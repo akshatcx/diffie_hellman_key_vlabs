@@ -8,7 +8,7 @@ def is_prime(n, k=128):
     """
     if n == 2 or n == 3:
         return True
-    
+
     if n <= 1 or n % 2 == 0:
         return False
 
@@ -80,21 +80,21 @@ print('')
 
 try:
     g = input("Enter a generator (leave blank to auto generate): ")
-except: 
+except:
     g=generate_prime_number(l-1)
 print("Generator: "+ str(g))
 print('')
 
 try:
     a = input("Enter Alice's Private key (leave blank to auto generate): ")
-except: 
+except:
     a=randrange(1,p)
 print("Alice's private key: " + str(a))
 print('')
 
 try:
     b = input("Enter Bob's Private key (leave blank to auto generate): ")
-except: 
+except:
     b=randrange(1,p)
 print("Bob's private key: " + str(b))
 print('')
@@ -115,4 +115,3 @@ print('')
 
 print("As both of them match, a Diffie Hellman Key was successfully established!")
 """
-

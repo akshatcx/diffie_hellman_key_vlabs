@@ -1,6 +1,6 @@
 function generatePrime()
 {
-  
+
   var primenumber = document.getElementById('primeno')
     fetch("/api/genp?bits=256")
     .then((res) => res.json())
@@ -10,7 +10,7 @@ function generatePrime()
 }
 
 function nextGenerator(){
-  var primenumber = document.getElementById('primeno')  
+  var primenumber = document.getElementById('primeno')
   var generatorvalue = document.getElementById('generator')
     fetch("/api/geng?prime="+primenumber.value)
     .then((res) => res.json())
