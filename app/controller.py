@@ -67,7 +67,7 @@ def feedback():
 def genp():
     l=0
     l=int(str(request.args.get('bits')))
-    
+
     #helper file contains the required function genp
     p = str(helper.genp(l))
     return json.dumps({'prime': p })
@@ -76,7 +76,7 @@ def genp():
 @main.route('/api/geng')
 def geng():
     p=int(str(request.args.get('prime')))
-    
+
     #helper file contains the required function geng
     g=str(helper.geng(p))
     return json.dumps({'generator': g })
@@ -85,7 +85,7 @@ def geng():
 @main.route('/api/private_key')
 def private_key():
     p=int(str(request.args.get('prime')))
-    
+
     #helper file contains the required function genpk
     pk=str(helper.genpk(p))
     return json.dumps({'private_key' : pk })
@@ -118,14 +118,15 @@ def calg():
 @main.route('/addanswers', methods = ['POST'])
 def addAnswers():
     db.create_all()
+    answer1 = request.form['q1']
+    answer2 = request.form['q2']
+    answer3 = request.form['q3']
+    answer4 = request.form['q4']
     try:
-        answer1 = request.form['q1']
-        answer2 = request.form['q2']
-        answer3 = request.form['q3']
-        answer4 = request.form['q4']
-        Answer = Quiz(answer1, answer2, answer3, answer4)
-        db.session.add(Answer)
-        db.session.commit()
+        if( answer1 != "" and answer2!="" and answer3 != "" and answer4 != ""):
+            Answer = Quiz(answer1, answer2, answer3, answer4)
+            db.session.add(Answer)
+            db.session.commit()
     except:
         flash('Please fill in all the answers',"error")
     return json.dumps(True)

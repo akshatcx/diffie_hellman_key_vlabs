@@ -25,7 +25,7 @@ var Ans = function()
     error: function(response)
     {
       console.log(response);
-      alert("Error incurred");
+      alert("Error !!!  Please Enter all the values before submitting");
     }
   });
 }
